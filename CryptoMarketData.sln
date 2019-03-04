@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2003
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CryptoMarketData", "CryptoMarketData\CryptoMarketData.csproj", "{DF411252-4D85-445A-9F92-F70FD3CD8077}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestProject", "UnitTestProject\UnitTestProject.csproj", "{FEECB07C-AC1B-4300-A92F-5F1A684FF297}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DF411252-4D85-445A-9F92-F70FD3CD8077}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF411252-4D85-445A-9F92-F70FD3CD8077}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DF411252-4D85-445A-9F92-F70FD3CD8077}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DF411252-4D85-445A-9F92-F70FD3CD8077}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FEECB07C-AC1B-4300-A92F-5F1A684FF297}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FEECB07C-AC1B-4300-A92F-5F1A684FF297}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FEECB07C-AC1B-4300-A92F-5F1A684FF297}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FEECB07C-AC1B-4300-A92F-5F1A684FF297}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {EA9409BD-1B0A-4E91-BD05-496D1B60FFD5}
+	EndGlobalSection
+EndGlobal
