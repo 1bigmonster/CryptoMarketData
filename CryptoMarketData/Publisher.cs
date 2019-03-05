@@ -31,7 +31,7 @@ namespace CryptoMarketData
         public void Send(string symbol, object[] data)
         {
             int rows = data.Length;
-            Console.WriteLine($"{DateTime.Now} - Ready to send {rows} rows.");
+            //Console.WriteLine($"{DateTime.Now} - Ready to send {rows} rows.");
 
             var events = new Event[1];
             events[0] = new Event { Channel = symbol, EventName = "ob-data", Data = data };
@@ -45,6 +45,14 @@ namespace CryptoMarketData
             events[0] = new Event { Channel = symbol, EventName = "ob-reset", Data = "" };
             var result = pusher.TriggerAsync(events);
         }
+
+        //public void SendComplete(string symbol)
+        //{
+        //    Console.WriteLine($"{DateTime.Now} - Ready to send a reset message.");
+        //    var events = new Event[1];
+        //    events[0] = new Event { Channel = symbol, EventName = "ob-reset", Data = "" };
+        //    var result = pusher.TriggerAsync(events);
+        //}
 
         public void HelloWorld()
         {

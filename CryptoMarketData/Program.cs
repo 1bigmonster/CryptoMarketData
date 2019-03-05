@@ -1,8 +1,6 @@
-﻿using CryptoMarketData;
-using CryptoMarketData.Properties;
+﻿using CryptoMarketData.Properties;
 using System;
 using System.Threading;
-using System.Threading.Tasks;
 
 namespace CryptoMarketData
 {
@@ -29,7 +27,6 @@ namespace CryptoMarketData
                 while (keepRunning)
                 {
                     var btcusd = new MarketData("btcusd");
-
                     if (bool.Parse(Resources.Bitfinex))
                     {
                         Bitfinex bitfinex = new Bitfinex();
@@ -54,18 +51,12 @@ namespace CryptoMarketData
                         btcusd.AddQuote(tidebit.GetQuote("btchkd"));
                         btcusd.AddOrderbook(tidebit.GetOrderbook("btchkd"));
                     }
-
-                    publisher = new Publisher();
-                    //publisher.HelloWorld();
-
                     publisher.SendReset("btcusd");
                     Thread.Sleep(100);
                     foreach (var cluster in btcusd.ToPusherFormat())
                     {
                         publisher.Send("btcusd", cluster);
-                        Thread.Sleep(100);
-                        //foreach (var i in cluster)
-                        //    Console.WriteLine(i);
+                        Thread.Sleep(500); //If set sleep < 500, PUSHER does not guarantee send messages in sequence.
                     }
                     {
                         int sleep = int.Parse(Resources.RefreshInterval);
@@ -73,7 +64,6 @@ namespace CryptoMarketData
                         Thread.Sleep(sleep);
                     }
                 }
-
                 exitEvent.WaitOne();
                 Console.WriteLine($"{DateTime.Now} - stopped.");
                 Console.WriteLine("Press any key(s) to quit...");

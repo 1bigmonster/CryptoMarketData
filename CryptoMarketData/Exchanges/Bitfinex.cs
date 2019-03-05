@@ -57,20 +57,20 @@ namespace CryptoMarketData
             string content = GetContent(url);
             var array = JsonConvert.DeserializeObject<string[,]>(content);
             var orderbook = new Orderbook();
-            for (int i = 0; i < 50; i++) //bids
+            for (int i = 0; i < 100; i++) //bids
             {
                 orderbook.Bids.Add(new Order
                 {
                     Price = decimal.Parse(array[i, 0]),
-                    Quantity = Math.Abs(decimal.Parse(array[i, 2])),
+                    Quantity = decimal.Parse(array[i, 2]),
                 });
             }
-            for (int i = 25; i < 100; i++) //asks
+            for (int i = 100; i < 200; i++) //asks
             {
                 orderbook.Asks.Add(new Order
                 {
                     Price = decimal.Parse(array[i, 0]),
-                    Quantity = Math.Abs(decimal.Parse(array[i, 2])),
+                    Quantity = decimal.Parse(array[i, 2]) * -1,
                 });
             }
             return orderbook;

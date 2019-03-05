@@ -131,10 +131,18 @@ namespace CryptoMarketData
                         if (index == batchSize)
                         {
                             index = 0; //reset
-                            yield return data;
+                            Console.WriteLine($"{DateTime.Now} - Ready to send {batchSize} rows.");
+                            var copy = data;
+                            yield return copy;
+                            data = new object[batchSize];
                         }
                     }
                 }
+            }
+            if (0 < index && index < batchSize)
+            {
+                Console.WriteLine($"{DateTime.Now} - Ready to send {index} rows.");
+                yield return data;
             }
         }
 
